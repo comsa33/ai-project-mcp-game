@@ -80,6 +80,26 @@ uv run main.py
 > 
 
 ---
+## PET 데이터 구조
+```json
+{
+  "name": "코코",
+  "breed": "개",
+  "age": 2,
+  "weight": 5.0, # kg
+  "max_hp": 100,
+  "current_hp": 100,
+  "is_alive": true,
+  "is_awake": true,
+  "pet_nature": [
+    "활발함",
+    "호기심",
+    "수줍음"
+  ],
+  "active_score": 80, # 0-100
+  "aggressive_score": 20, # 0-100
+}
+
 
 ## 🔧 MCP 서버 기능 명세
 
