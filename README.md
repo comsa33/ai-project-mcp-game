@@ -99,7 +99,7 @@ uv run main.py
   "active_score": 80, # 0-100
   "aggressive_score": 20, # 0-100
 }
-
+```
 
 ## 🔧 MCP 서버 기능 명세
 
