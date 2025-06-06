@@ -11,6 +11,22 @@
 ## MCP 서버 기반 팀프로젝트 제안서
 
 ---
+### `uv` 설치
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+### `uv` 라이브러리 의존성 설치
+```bash
+uv sync
+```
+
+### `uv` 서버 실행
+```bash
+uv run main.py
+```
+
+---
 
 ## 📋 프로젝트 개요
 
