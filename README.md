@@ -103,13 +103,7 @@ uv run main.py
 - `get_pet_thoughts()`: 펫의 현재 생각/감정
 - `record_interaction()`: 사용자 패턴 학습
 
-### 4️⃣ 성장/진화 시스템
-
-- `check_evolution_conditions()`: 진화 조건 확인
-- `train_pet_skill()`: 능력치 훈련
-- `get_achievements()`: 성취 시스템
-
-### 5️⃣ 환경/이벤트 시스템
+### 4️⃣ 환경/이벤트 시스템
 
 - `trigger_random_event()`: 랜덤 이벤트 발생
 - `get_weather()`: 날씨가 펫 기분에 미치는 영향
