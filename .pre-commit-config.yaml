@@ -1,0 +1,26 @@
+repos:
+  - repo: local
+    hooks:
+      # ruff: 코드 스타일, 미사용 import, 변수 검사 + optional fix
+      - id: uvx-ruff
+        name: uvx ruff linter
+        entry: uvx --python 3.12 ruff check --fix
+        language: system
+        types: [python]
+        exclude: ^(routes/|constants/|llms/)
+      
+      # isort: import 정렬
+      - id: uvx-isort
+        name: uvx isort linter
+        entry: uvx --python 3.12 isort --profile black
+        language: system
+        types: [python]
+        exclude: ^(routes/|constants/|llms/)
+
+      # black: 코드 포맷 정렬
+      - id: uvx-black
+        name: uvx black formatter
+        entry: uvx --python 3.12 black
+        language: system
+        types: [python]
+        exclude: ^(routes/|constants/|llms/)
