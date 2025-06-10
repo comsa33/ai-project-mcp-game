@@ -1,1 +1,96 @@
-{}
+{
+  "06e29629-6b12-4ac3-9355-2e907c995d35": {
+    "pet_id": "06e29629-6b12-4ac3-9355-2e907c995d35",
+    "name": "루댕이",
+    "species": "개",
+    "breed": "푸들",
+    "age": 0,
+    "weight": 1.0,
+    "growth_stage": "알",
+    "max_hp": 100,
+    "current_hp": 100,
+    "is_alive": true,
+    "is_awake": true,
+    "stats": {
+      "hunger": 100,
+      "happiness": 100,
+      "health": 100,
+      "energy": 100,
+      "cleanliness": 100,
+      "affection": 50
+    },
+    "personality": {
+      "playfulness": 77,
+      "sociability": 78,
+      "curiosity": 78,
+      "stubbornness": 46,
+      "energy_level": 73,
+      "intelligence": 51
+    },
+    "current_mood": "행복함",
+    "pet_nature": [
+      "활발함",
+      "사교적",
+      "호기심"
+    ],
+    "favorite_activities": [],
+    "learned_preferences": {},
+    "memories": [],
+    "created_at": "2025-06-10 15:14:38.864844",
+    "last_fed_at": null,
+    "last_played_at": null,
+    "last_cleaned_at": null,
+    "last_sleep_at": null,
+    "last_updated_at": "2025-06-10 15:14:38.864848",
+    "total_meals": 0,
+    "total_play_sessions": 0,
+    "total_baths": 0,
+    "days_alive": 0
+  },
+  "cdacbe1d-650b-4b15-8ca3-fe246f8e321c": {
+    "pet_id": "cdacbe1d-650b-4b15-8ca3-fe246f8e321c",
+    "name": "루댕이",
+    "species": "개",
+    "breed": "푸들",
+    "age": 0,
+    "weight": 1.0,
+    "growth_stage": "알",
+    "max_hp": 100,
+    "current_hp": 100,
+    "is_alive": true,
+    "is_awake": true,
+    "stats": {
+      "hunger": 100,
+      "happiness": 100,
+      "health": 100,
+      "energy": 100,
+      "cleanliness": 100,
+      "affection": 50
+    },
+    "personality": {
+      "playfulness": 89,
+      "sociability": 58,
+      "curiosity": 44,
+      "stubbornness": 44,
+      "energy_level": 63,
+      "intelligence": 61
+    },
+    "current_mood": "행복함",
+    "pet_nature": [
+      "활발함"
+    ],
+    "favorite_activities": [],
+    "learned_preferences": {},
+    "memories": [],
+    "created_at": "2025-06-10 15:14:43.053850",
+    "last_fed_at": null,
+    "last_played_at": null,
+    "last_cleaned_at": null,
+    "last_sleep_at": null,
+    "last_updated_at": "2025-06-10 15:14:43.053854",
+    "total_meals": 0,
+    "total_play_sessions": 0,
+    "total_baths": 0,
+    "days_alive": 0
+  }
+}
