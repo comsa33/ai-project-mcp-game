@@ -11,20 +11,170 @@
 ## MCP 서버 기반 팀프로젝트 제안서
 
 ---
-### `uv` 설치
+
+## 🚀 빠른 시작 가이드
+
+### 1️⃣ 환경 설정
+
+#### `uv` 설치
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-### `uv` 라이브러리 의존성 설치
+#### 의존성 설치
 ```bash
 uv sync
 ```
 
-### `uv` 서버 실행
+### 2️⃣ MCP 서버 실행
+
+#### 기본 MCP 서버 (stdio 방식)
 ```bash
-uv run main.py
+uv run src/tamagotchi_server/main.py
 ```
+
+#### HTTP MCP 서버 (원격 접속용)
+```bash
+uv run src/tamagotchi_server/http_server.py
+```
+
+서버가 성공적으로 시작되면 다음과 같은 로그가 출력됩니다:
+```
+=== AI 다마고치 펫 게임 서버 시작 ===
+데이터 디렉토리: data
+기존 펫 0마리 로드됨
+서버 초기화 완료!
+```
+
+### 3️⃣ Claude Desktop에 서버 연결
+
+#### Claude Desktop 설치
+Claude Desktop 앱을 다운로드하여 설치하세요: https://claude.ai/download
+
+#### 설정 파일 생성
+
+**macOS/Linux:**
+```bash
+# 설정 디렉토리 생성
+mkdir -p ~/.config/claude-desktop
+
+# 설정 파일 생성 (경로를 본인 프로젝트 경로로 수정)
+cat > ~/.config/claude-desktop/claude_desktop_config.json << 'EOF'
+{
+  "mcpServers": {
+    "tamagotchi-pet-game": {
+      "command": "uv",
+      "args": ["run", "src/tamagotchi_server/main.py"],
+      "cwd": "/home/ruo/my_project/ai-project-mcp-game"
+    }
+  }
+}
+EOF
+```
+
+**Windows:**
+```powershell
+# PowerShell에서 실행 (경로를 본인 프로젝트 경로로 수정)
+mkdir "$env:APPDATA\Claude"
+@"
+{
+  "mcpServers": {
+    "tamagotchi-pet-game": {
+      "command": "uv",
+      "args": ["run", "src/tamagotchi_server/main.py"],
+      "cwd": "C:\\path\\to\\your\\ai-project-mcp-game"
+    }
+  }
+}
+"@ | Out-File -FilePath "$env:APPDATA\Claude\claude_desktop_config.json" -Encoding UTF8
+```
+
+**Remote 서버 설정 (HTTP MCP 서버 사용 시):**
+```json
+{
+  "mcpServers": {
+    "tamagotchi-pet-game": {
+      "command": "npx",
+      "args": ["mcp-remote", "http://localhost:27777/sse", "--allow-http"]
+    }
+  }
+}
+```
+
+#### ⚠️ 중요: 경로 수정 필요
+위 설정에서 `cwd` 경로를 **본인의 실제 프로젝트 경로**로 수정해야 합니다.
+
+현재 프로젝트 경로 확인:
+```bash
+pwd
+```
+
+#### Claude Desktop 재시작
+1. Claude Desktop 앱을 **완전히 종료**
+2. Claude Desktop 앱을 **다시 시작**
+3. **새로운 대화** 시작
+
+### 4️⃣ 연결 테스트
+
+Claude Desktop에서 새 채팅을 시작하고 다음과 같이 테스트해보세요:
+
+```
+안녕! 내 다마고치 서버가 연결되었는지 확인해줘. 서버 정보를 보여줄 수 있어?
+```
+
+또는:
+
+```
+새로운 펫을 만들어줘. 이름은 "코코", 종류는 "개"로 해줘.
+```
+
+### 5️⃣ 사용 가능한 기능
+
+연결이 성공하면 Claude가 다음 기능들을 사용할 수 있습니다:
+
+- 🐾 **펫 생성**: 새로운 다마고치 펫 만들기
+- 📊 **펫 상태 조회**: 배고픔, 행복도, 건강도 등 확인
+- 💭 **펫 성격 조회**: 개성과 특성 확인
+- 🎮 **상호작용**: 놀기, 대화, 칭찬 등
+- 📝 **기억 조회**: 펫의 경험과 추억 확인
+- 🏥 **필요사항 확인**: 펫이 필요로 하는 케어 파악
+- 📈 **성장 정보**: 성장 단계와 진화 상태 확인
+
+---
+
+## 🔧 문제 해결
+
+### 서버 연결 실패 시
+
+1. **프로젝트 경로 확인**
+   ```bash
+   pwd  # 현재 디렉토리 확인
+   ```
+
+2. **설정 파일 경로 확인**
+   ```bash
+   # macOS/Linux
+   cat ~/.config/claude-desktop/claude_desktop_config.json
+   
+   # Windows
+   type "$env:APPDATA\Claude\claude_desktop_config.json"
+   ```
+
+3. **서버 수동 테스트**
+   ```bash
+   cd /path/to/your/ai-project-mcp-game
+   uv run src/tamagotchi_server/main.py
+   ```
+
+4. **로그 확인**
+   서버 실행 시 오류 메시지를 확인하여 문제를 진단하세요.
+
+### 일반적인 문제들
+
+- **경로 오류**: `cwd` 경로가 잘못된 경우
+- **권한 문제**: uv 실행 권한이 없는 경우
+- **의존성 누락**: `uv sync`를 실행하지 않은 경우
+- **Claude Desktop 버전**: 구버전 Claude Desktop 사용 시
 
 ---
 
