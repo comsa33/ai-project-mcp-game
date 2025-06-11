@@ -1,2 +1,5 @@
 .venv
 __pycache__/
+CLAUDE.md
+data/*.json
+logs/*.log
