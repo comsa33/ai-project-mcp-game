@@ -13,6 +13,11 @@ class Config:
         self.max_pets_per_user = int(os.getenv("MAX_PETS_PER_USER", "5"))
         self.auto_save_interval = int(os.getenv("AUTO_SAVE_INTERVAL", "300"))  # 5분
         
+        # Gemini API 설정
+        self.gemini_api_key = os.getenv("GEMINI_API_KEY")
+        if not self.gemini_api_key:
+            raise ValueError("GEMINI_API_KEY 환경 변수가 설정되지 않았습니다.")
+        
         # 게임 밸런스 설정
         self.hunger_decay_rate = float(os.getenv("HUNGER_DECAY_RATE", "2.0"))
         self.energy_decay_rate = float(os.getenv("ENERGY_DECAY_RATE", "1.0"))
@@ -25,6 +30,10 @@ class Config:
         
         # 디렉토리 생성
         Path(self.data_dir).mkdir(exist_ok=True)
+    
+    def get(self, key: str, default: Any = None) -> Any:
+        """설정값 조회"""
+        return getattr(self, key, default)
     
     def get_growth_stages(self) -> Dict[str, int]:
         """성장 단계별 필요 일수"""
